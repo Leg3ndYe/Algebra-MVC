@@ -1,0 +1,58 @@
+﻿@model Racun
+@{
+    ViewData["Title"] = "Detalji racuna " + Model.BrojRacuna;
+}
+
+<h2>Detalji racuna</h2>
+
+<div>
+    <h4>Racun </h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BrojRacuna)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(model => model.BrojRacuna)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DatumIzdavanja)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(model => model.DatumIzdavanja)
+        </dt>
+    </dl>
+</div>
+
+<div class="row">
+    <table class="table table-striped">
+        <tr>
+            <th>Naziv</th>
+            <th>Kolicina</th>
+            <th>Jedinicna cijena</th>
+            <th>Ukupna cijena</th>
+        </tr>
+        <tbody>
+            @foreach(var stavka in Model.Stavke)
+            {
+                <tr>
+                    <td>@stavka.Naziv</td>
+                    <td>@String.Format("{0:0.00}",stavka.Kolicina)</td>
+                    <td>@String.Format("{0:0.00}",stavka.JedinicnaCijena)</td>
+                    <td>@String.Format("{0:0.00}",stavka.UkupnaCijena())</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<p>
+    <a style="color:green" href="@Url.Action("DodajNovuStavkuRacuna", "Home", new {id = Model.BrojRacuna})">
+        Dodaj novu stavku
+        </a>
+</p>
+<p>
+    Ukupno za platiti: @Model.Ukupno()
+</p>
+<hr />
+<p>
+    @Html.ActionLink("Povratak na popis racuna", "Index")
+</p>

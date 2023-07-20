@@ -1,0 +1,15 @@
+﻿@model Student
+
+@{
+    ViewData["Title"] = "Student";
+}
+
+<h1>Student</h1>
+<h2>Detalji studenta:</h2>
+
+<ul style="list-style-type:circle">
+    <li>ID studenta: @Model.ID</li>
+    <li>Ime i prezime studenta: @Model.Ime @Model.Prezime</li>
+    <li>Dob: @Model.Dob</li>
+</ul>
+<p>@ViewBag.Poruka</p>

@@ -1,0 +1,27 @@
+﻿
+@{
+    var datum = DateTime.Now.ToShortDateString();
+    var poruka = "Dobrodosli u Razor sintaksu";
+}
+
+<h1>Primjer2</h1>
+<p>Danas je @datum</p>
+<p>@poruka</p>
+
+@{
+    var pozdrav = "Pozdrav i dobrodosli :) ";
+    var danutjednu = DateTime.Now.DayOfWeek;
+    var punaporuka = pozdrav + " na ovaj vruci " + danutjednu;
+    var dan = " ";
+
+    switch(danutjednu)
+    {
+        case DayOfWeek.Tuesday:
+            dan = "Utorak";
+            break;
+    }
+}
+
+<p>@punaporuka</p>
+
+<p>@pozdrav <br /> na ovaj vruci @dan</p>

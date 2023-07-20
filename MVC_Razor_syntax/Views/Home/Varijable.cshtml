@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Varijable";
+}
+
+<h1>Varijable</h1>
+
+@{
+    string ime = "Ivan";
+    int broj = 13;
+    int sum = broj + 5;
+    var danas = DateTime.Today;
+    var sutra = danas.AddDays(1);
+}
+
+<p>@ime</p>
+<br />
+<p>@broj</p>
+<br />
+<p>@sum</p>
+<br />
+<p>@danas</p>
+<br />
+<p>@sutra</p>

@@ -1,0 +1,26 @@
+﻿
+@{
+    int broj = 13;
+}
+@{
+    string poruka = "Razor sintaksa";
+}
+
+<h1>Primjer</h1>
+<p>Broj koji je odabran: @broj</p>
+<p>Tekst: @poruka</p>
+
+<!--Komentar u HTML-u->
+<!-- Ovo je komentar u HTML-u
+    koji se nece prikazati u pregledniku
+    no vidljiv je u izvornom kodu stranice
+-->
+
+@*
+    Ovo je komentar u HTML-u
+    koji se nece prikazati u pregledniku
+    no nije vidljiv u izvornom kodu stranice
+*@
+
+<h2>@DateTime.Now.ToShortDateString()</h2>
+<h2>@DateTime.Now.ToString("HH:mm:ss")</h2>

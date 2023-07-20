@@ -1,0 +1,26 @@
+﻿<h1>SwitchPrimjer</h1>
+
+@{
+    switch(DateTime.Now.DayOfWeek)
+    {
+        case DayOfWeek.Monday:
+            @:Danas je ponedjeljak.
+            break;
+
+        case DayOfWeek.Friday:
+            <span>Dolazi vikend :) </span>
+            break;
+        case DayOfWeek.Saturday:
+        case DayOfWeek.Sunday:
+            <text>Napokon vikend je :D</text>
+            break;
+        default:
+            <span>Normalan radni dan...</span>
+            break;
+
+        
+
+    }
+}
+
+

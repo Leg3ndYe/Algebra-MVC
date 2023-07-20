@@ -1,0 +1,33 @@
+﻿<h1>IfGrananje</h1>
+
+
+ @if(DateTime.IsLeapYear(DateTime.Now.Year))
+ {
+     @DateTime.Now.Year @: je prijestupna godina.
+ }
+ else
+ {
+     @DateTime.Now.Year @: nije prijestupna godina.
+ }
+
+
+<br />
+<br />
+
+@{
+    if(Context.Request.QueryString.HasValue)
+    {
+        string godine = Context.Request.Query["godine"].ToString();
+        int godineInt = Convert.ToInt32(godine);
+
+        if(DateTime.IsLeapYear(godineInt))
+        {
+            @:Godina @godineInt je prijestupna godina.
+        }
+        else
+        {
+            @:Godina @godineInt nije prijestupna godina.
+        }
+    }
+}
+

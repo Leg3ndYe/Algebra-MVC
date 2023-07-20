@@ -1,0 +1,93 @@
+﻿@model MVC_Uvod.Models.Osoba
+@{
+    ViewData["Title"] = "Index";
+    ViewBag.Title = "Index";
+}
+
+<h1>Pozdrav, ja sam pogled @ViewBag.Title</h1>
+<hr />
+
+@if(Model.Ime != null)
+{
+    <p>Ime = @Model.Ime</p>
+    <p>Prezime = @Model.Prezime</p>
+    <p>Datum rodjenja = @Model.DatumRodjenja.ToString("dd.MM.yyyy")</p>
+}
+else
+{
+    <p>Hmm, nemam nikakve podatke, ajd ih unesi.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th scope="col"> <h4>Ovo je HTML forma s POST metodom</h4> </th>
+                
+                <th scope="col"> <h4>Ovo je HTML forma s GET metodom</h4> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <form method="post" action="@Url.Action("OsobaPost","Osoba")">
+                        <div class="form-group row">
+                            <label for="Ime" class="col-sm-4 col-form-label">Ime:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="Ime" name="Ime" placeholder="Unesi ime">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Prezime" class="col-sm-4 col-form-label">Prezime:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="Prezime" name="Prezime" placeholder="Unesi prezime">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="DatumRodjenja" class="col-sm-4 col-form-label">Datum rodjenja:</label>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" id="DatumRodjenja" name="DatumRodjenja">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <button type="submit" class="btn btn-primary mb-2">Posalji podatke</button>
+                        </div>
+                    </form>
+                </td>
+                    
+                <td>
+                    <form method="get" action="@Url.Action("Index","Osoba")">
+                        <div class="form-group row">
+                            <label for="Ime" class="col-sm-4 col-form-label">Ime:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="Ime" name="Ime" placeholder="Unesi ime">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Prezime" class="col-sm-4 col-form-label">Prezime:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="Prezime" name="Prezime" placeholder="Unesi prezime">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="DatumRodjenja" class="col-sm-4 col-form-label">Datum rodjenja:</label>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" id="DatumRodjenja" name="DatumRodjenja">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <button type="submit" class="btn btn-primary mb-2">Posalji podatke</button>
+                        </div>
+                    </form>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+}
+
+

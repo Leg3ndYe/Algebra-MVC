@@ -1,0 +1,49 @@
+﻿@model List<Racun>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+<div style="color:red">@ViewBag.Greska</div>
+
+
+<p>
+    @Html.ActionLink("Novi racun","")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Broj racuna
+        </th>
+        <th>
+            Datum izdavanja
+        </th>
+        <th>
+            Iznos racuna
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrojRacuna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatumIzdavanja)
+            </td>
+            <td>
+                @item.Ukupno()
+            </td>
+            <td>
+                @Html.ActionLink("Uredi", "", new {id = item.BrojRacuna})
+                @Html.ActionLink("Detalji", "DetaljiRacuna", new {id = item.BrojRacuna})
+                @Html.ActionLink("Obrisi", "", new {id = item.BrojRacuna})
+            </td>
+        </tr>
+    }
+</table>
